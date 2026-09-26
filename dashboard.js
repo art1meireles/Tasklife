@@ -30,6 +30,12 @@ addTaskButton.addEventListener("click", function () {
  updateProgress();
 });
 
+taskInput.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        addTaskButton.click();
+    }
+});
+
 const progressBar = document.getElementById("progress-bar");
 const progressText = document.getElementById("progress-text");
 
@@ -61,3 +67,13 @@ const month = months[date.getMonth()];
 document.getElementById("weekday").textContent = weekday;
 document.getElementById("day").textContent = day;
 document.getElementById("month").textContent = month;
+
+const finishButton = document.getElementById("finish-btn");
+
+finishButton.addEventListener("click", function () {
+ 
+    localStorage.setItem("finalProgress", progressBar.value);
+ 
+    window.location.href = "finish.html";
+ 
+});
