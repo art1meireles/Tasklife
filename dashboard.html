@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Dashboard</title>
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <div class="date">
+            <p id="weekday"></p>
+            <p id="day"></p>
+            <p id="month"></p>
+        </div>
+
+        <h1>Minhas tarefas</h1>
+
+        <div class="task-input">
+            <input
+                type="text"
+                id="task-input"
+                placeholder="Digite uma tarefa..."
+            >
+            <button id="add-task">+</button>
+        </div>
+
+        <div id="task-list"></div>
+
+        <h2>Progresso</h2>
+
+        <progress
+            id="progress-bar"
+            value="0"
+            max="100">
+        </progress>
+
+        <p id="progress-text">0%</p>
+
+        <button id="finish-btn">
+            FINALIZAR DIA
+        </button>
+
+    </div>
+
+    <script src="dashboard.js"></script>
+
+</body>
+
+</html>
