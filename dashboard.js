@@ -7,6 +7,9 @@ const progressText = document.getElementById("progress-text");
 
 const finishButton = document.getElementById("finish-btn");
 
+// elemento que avisa quando o personagem está em recuperação
+const recuperacaoAviso = document.getElementById("recuperacao-aviso");
+
 let tasks = [];
 
 function createTaskElement(task) {
@@ -33,6 +36,12 @@ function createTaskElement(task) {
     taskText.addEventListener("click", function () {
         taskItem.classList.toggle("completed");
         updateProgress();
+
+        // se a tarefa foi marcada como concluída e o personagem está derrotado, isso conta como um passo da recuperação
+        if (taskItem.classList.contains("completed")) {
+            const personagem = avancarRecuperacao();
+            atualizarAvisoRecuperacao(personagem);
+        }
     });
 
     // clicar no lápis entra em modo de edição
@@ -154,10 +163,48 @@ document.getElementById("weekday").textContent = weekdays[date.getDay()];
 document.getElementById("day").textContent = date.getDate();
 document.getElementById("month").textContent = months[date.getMonth()];
 
+// mostra o aviso de recuperação assim que a página carrega (caso o personagem já esteja derrotado de um dia anterior)
+atualizarAvisoRecuperacao(lerPersonagem());
+
+// mostra/esconde o aviso "complete X tarefas para recuperar o personagem"
+function atualizarAvisoRecuperacao(personagem) {
+
+    if (!personagem.estadoDerrota) {
+        recuperacaoAviso.textContent = "";
+        recuperacaoAviso.classList.remove("visivel");
+        return;
+    }
+
+    const faltam = META_RECUPERACAO - personagem.tarefasParaRecuperar;
+    recuperacaoAviso.textContent =
+        `☠️ Personagem derrotado — complete ${faltam} tarefa(s) para recuperá-lo. `
+        + `[ ${personagem.tarefasParaRecuperar} / ${META_RECUPERACAO} ]`;
+    recuperacaoAviso.classList.add("visivel");
+}
 
 finishButton.addEventListener("click", function () {
 
-    localStorage.setItem("finalProgress", progressBar.value);
+    // antes só salvava "finalProgress"; agora monta um registro completo e guarda no histórico (usado pelo personagem e pelo calendário)
+    const totalTasks = tasks.length;
+    const completedTasks = document.querySelectorAll(".completed").length;
+    const progresso = totalTasks === 0 ? 0 : Math.round((completedTasks / totalTasks) * 100);
+
+    const registroDoDia = {
+        data: dataDeHoje(),
+        totalTarefas: totalTasks,
+        concluidas: completedTasks,
+        progresso: progresso
+    };
+
+    const historico = lerHistorico();
+    historico.push(registroDoDia);
+    salvarHistorico(historico);
+
+    // aplica a variação de HP do dia no personagem
+    atualizarHPDoDia(progresso);
+
+    // mantém compatibilidade com o que finish.js já lia antes
+    localStorage.setItem("finalProgress", progresso);
 
     window.location.href = "finish.html";
 
