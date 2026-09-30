@@ -148,7 +148,7 @@ body {
     margin-bottom: 10px;
 }
 
-#task-list p {
+.task-item {
     background-color: var(--fundobtn);
     font-size: 16px;
     color: var(--texto);
@@ -161,10 +161,41 @@ body {
     text-align: center;
 }
 
-.completed {
+.task-text {
+    flex: 1;
+    cursor: pointer;
+}
+
+
+
+.completed .task-text {
     text-decoration: line-through;
     text-decoration-color: #911010;
     text-decoration-thickness: 2px;
+}
+
+.edit-btn {
+    background: var(--fundobtn);
+    border: 1px solid var(--borda);
+    color: var(--texto);
+    font-size: 15px;
+    cursor: pointer;
+    opacity: 0.9;
+    padding: 2px 4px;
+    line-height: 1;
+}
+ 
+.edit-btn:hover {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+.edit-input {
+    flex: 1;
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: none;
+    font-size: 14px;
 }
 
 progress {
