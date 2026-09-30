@@ -5,11 +5,11 @@
 }
 
 :root {
- --fundogeral: #e8dcca;
- --fundobtn: #d3b693;
- --borda: #1e080c;
+ --fundogeral: #221f1f;
+ --fundobtn: #969390;
+ --borda: #333131;
  --preto: #000000;
- --texto: #421d00;
+ --texto: #f8f7f6;
 }
 
 body {
