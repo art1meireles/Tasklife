@@ -26,7 +26,7 @@ function createTaskElement(task) {
     // botão de editar
     const editButton = document.createElement("button");
     editButton.classList.add("edit-btn");
-    editButton.textContent = "editar"
+    editButton.textContent = "✍️";
     editButton.title = "Editar tarefa";
 
     taskItem.appendChild(taskText);
@@ -46,7 +46,7 @@ function createTaskElement(task) {
 
     // clicar no lápis entra em modo de edição
     editButton.addEventListener("click", function (event) {
-        event.stopPropagation(); // NOVO: não deixa o clique "vazar" pro taskText
+        event.stopPropagation(); // não deixa o clique "vazar" pro taskText
         startEditing(taskItem, taskText);
     });
 

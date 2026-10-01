@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Como usar</title>
+</head>
+
+<body>
+
+    <div class="instrucoes">
+
+        <h1>Como usar o TO DO LIST</h1>
+
+        <section class="instrucoes-secao">
+            <h2>Tela inicial</h2>
+            <ul>
+                <li>A saudação exibida no topo é ajustada automaticamente de acordo com o horário do seu dispositivo (bom dia, boa tarde ou boa noite).</li>
+                <li>O mini calendário apresenta o mês atual: cada dia é colorido conforme o desempenho registrado naquela data. A legenda de cores correspondente está logo abaixo.</li>
+                <li>Selecione o botão <strong>COMEÇAR</strong> para acessar a lista de tarefas do dia.</li>
+            </ul>
+        </section>
+
+        <section class="instrucoes-secao">
+            <h2>Adicionando e completando tarefas</h2>
+            <ul>
+                <li>Digite a tarefa desejada no campo de texto e pressione <strong>Enter</strong> ou selecione o botão <strong>+</strong> para incluí-la na lista.</li>
+                <li>É possível planejar até <strong>7 tarefas</strong> por dia.</li>
+                <li>Selecione o <strong>texto</strong> de uma tarefa para marcá-la (ou desmarcá-la) como concluída; tarefas concluídas são exibidas com um traço sobre o texto.</li>
+                <li>Utilize o botão <strong>editar</strong> para corrigir o texto de uma tarefa. Pressione <strong>Enter</strong> para confirmar a alteração ou <strong>Esc</strong> para cancelá-la.</li>
+            </ul>
+        </section>
+
+        <section class="instrucoes-secao">
+            <h2>Progresso e finalização do dia</h2>
+            <ul>
+                <li>A barra de progresso indica o percentual de tarefas concluídas até o momento.</li>
+                <li>O botão <strong>FINALIZAR DIA</strong> deve ser utilizado somente quando o dia estiver de fato encerrado: essa ação registra o resultado no histórico, atualiza o calendário e altera o HP do personagem. Não é possível finalizar o mesmo dia mais de uma vez com resultados distintos.</li>
+            </ul>
+        </section>
+
+        <section class="instrucoes-secao">
+            <h2>Seu personagem</h2>
+            <p>O personagem representa a consistência do usuário ao longo do tempo, ganhando ou perdendo HP (em uma escala de 0 a 100) de acordo com o desempenho de cada dia finalizado.</p>
+
+            <table class="instrucoes-tabela">
+                <tr><th>Desempenho do dia</th><th>Efeito no HP</th></tr>
+                <tr><td>100%</td><td>+5 HP</td></tr>
+                <tr><td>90–99%</td><td>+3 HP</td></tr>
+                <tr><td>80–89%</td><td>+1 HP</td></tr>
+                <tr><td>70–79%</td><td>0</td></tr>
+                <tr><td>60–69%</td><td>-5 HP</td></tr>
+                <tr><td>40–59%</td><td>-10 HP</td></tr>
+                <tr><td>20–39%</td><td>-20 HP</td></tr>
+                <tr><td>0–19%</td><td>-30 HP</td></tr>
+            </table>
+
+            <table class="instrucoes-tabela">
+                <tr><th>HP</th><th>Estado</th></tr>
+                <tr><td>81–100</td><td>😊 Saudável</td></tr>
+                <tr><td>61–80</td><td>😐 Cansado</td></tr>
+                <tr><td>41–60</td><td>😣 Ferido</td></tr>
+                <tr><td>21–40</td><td>😰 Gravemente ferido</td></tr>
+                <tr><td>1–20</td><td>💀 Estado crítico</td></tr>
+                <tr><td>0</td><td>☠️ Derrotado</td></tr>
+            </table>
+
+            <p>Caso o HP atinja 0, o personagem é considerado <strong>derrotado</strong>. Para recuperá-lo, é necessário concluir 3 tarefas (em qualquer dia subsequente), retornando com uma quantidade inicial de HP. A derrota <strong>não resulta na perda</strong> do histórico ou do calendário já registrados.</p>
+        </section>
+
+        <section class="instrucoes-secao">
+            <h2>Calendário de consistência</h2>
+            <p>Cada dia do calendário recebe uma cor de acordo com o percentual de tarefas concluídas naquela data:</p>
+            <div class="instrucoes-legenda">
+                <span>🟢 80–100% — Excelente</span>
+                <span>🟡 60–79% — Consistente</span>
+                <span>🟠 40–59% — Baixo</span>
+                <span>🔴 0–39% — Muito baixo</span>
+                <span>⚪ Dia sem uso registrado do site</span>
+            </div>
+            <p>Posicione o cursor sobre um dia colorido para visualizar o número de tarefas concluídas naquela data.</p>
+        </section>
+
+        <section class="instrucoes-secao">
+            <h2>Sobre os seus dados</h2>
+            <ul>
+                <li>Todas as informações (tarefas do dia, histórico e personagem) são armazenadas localmente no <strong>navegador utilizado</strong> — não há criação de conta nem autenticação.</li>
+                <li>Os dados <strong>não são sincronizados</strong> entre dispositivos diferentes; cada navegador ou aparelho mantém seu próprio histórico de forma independente.</li>
+                <li>A exclusão dos dados de navegação do navegador resultará na perda do progresso registrado.</li>
+            </ul>
+        </section>
+
+        <button id="voltar-instrucoes-btn">VOLTAR</button>
+
+    </div>
+
+    <script src="instrucoes.js"></script>
+
+</body>
+
+</html>
