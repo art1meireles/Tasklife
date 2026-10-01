@@ -24,9 +24,7 @@ Aplicativo web de produtividade que transforma o gerenciamento de tarefas diári
 ├── finish.html / finish.js         → Tela de resultado do dia
 ├── calendario.html / calendario.js → Calendário de consistência completo
 ├── utils.js                        → Funções compartilhadas (histórico, personagem, calendário, datas)
-├── style.css                       → Estilos de todas as telas
-└── assets/                         → Imagens e recursos estáticos
-```
+└── style.css                       → Estilos de todas as telas
 
 ## Tecnologias
 
