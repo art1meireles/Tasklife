@@ -10,9 +10,50 @@ function salvarHistorico(historico) {
     localStorage.setItem("historico", JSON.stringify(historico));
 }
 
+// formata uma data (objeto Date) como "AAAA-MM-DD", no fuso LOCAL do dispositivo
+function formatarData(date) {
+    const ano = date.getFullYear();
+    const mes = String(date.getMonth() + 1).padStart(2, "0");
+    const dia = String(date.getDate()).padStart(2, "0");
+    return `${ano}-${mes}-${dia}`;
+}
+
+
 function dataDeHoje() {
-    // formato "AAAA-MM-DD", fácil de comparar e ordenar
-    return new Date().toISOString().slice(0, 10);
+    return formatarData(new Date());
+}
+
+// calcula quantos dias seguidos (até hoje ou ontem) o usuário tem registro no histórico. Conta "uso do app", não desempenho — um dia com progresso baixo ainda conta pro streak, desde que o dia tenha sido finalizado.
+function calcularStreak() {
+ 
+    const historico = lerHistorico();
+    const datasComRegistro = new Set(historico.map(function (item) {
+        return item.data;
+    }));
+ 
+    let streak = 0;
+    const cursor = new Date();
+ 
+    // se hoje ainda não foi finalizado, começa a contagem a partir de ontem, assim o streak não "quebra" só porque o dia de hoje ainda não acabou)
+    if (!datasComRegistro.has(formatarData(cursor))) {
+        cursor.setDate(cursor.getDate() - 1);
+    }
+ 
+    while (datasComRegistro.has(formatarData(cursor))) {
+        streak++;
+        cursor.setDate(cursor.getDate() - 1);
+    }
+ 
+    return streak;
+}
+
+function saudacaoPorHorario() {
+ 
+    const hora = new Date().getHours();
+ 
+    if (hora >= 5 && hora < 12) return "Bom dia!";
+    if (hora >= 12 && hora < 18) return "Boa tarde!";
+    return "Boa noite!";
 }
 
 // PERSONAGEM

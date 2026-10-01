@@ -25,6 +25,13 @@ body {
  align-items: center;
 }
 
+.saudacao {
+ color: var(--texto);
+ font-size: 18px;
+ opacity: 0.8;
+ margin-bottom: 8px;
+}
+
 .main-container h1 {
  color: var(--texto);
  font-size: 48px;
@@ -44,6 +51,22 @@ body {
     width: 10ch;
   }
 }*/
+
+.streak {
+ display: none;
+ color: var(--texto);
+ background-color: var(--fundobtn);
+ border: 2px solid var(--borda);
+ border-radius: 20px;
+ padding: 6px 16px;
+ font-size: 14px;
+ font-weight: bold;
+ margin-top: 20px;
+}
+ 
+.streak.visivel {
+ display: block;
+}
 
 .foto{
     width: 400px;
