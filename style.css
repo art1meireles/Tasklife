@@ -210,6 +210,22 @@ progress {
     font-weight: bold;
 }
 
+.recuperacao-aviso {
+    display: none;
+    max-width: 300px;
+    text-align: center;
+    background-color: #911010;
+    color: var(--texto);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    margin-bottom: 16px;
+}
+
+.recuperacao-aviso.visivel {
+    display: block;
+}
+
 #finish-btn {
     background-color: var(--fundobtn);
     color: var(--texto);
@@ -223,6 +239,19 @@ progress {
 #finish-btn:hover {
     transform: scale(1.05);
 }
+
+.link-calendario {
+    color: var(--texto);
+    opacity: 0.9;
+    margin-top: 16px;
+    font-size: 14px;
+    text-decoration: underline;
+}
+
+.link-calendario:hover {
+    opacity: 1;
+}
+
 
 /* tela final */
 .finish {
@@ -247,6 +276,36 @@ progress {
     margin: 20px 0;
 }
 
+.personagem {
+    background-color: var(--fundobtn);
+    border: 3px solid var(--borda);
+    border-radius: 12px;
+    padding: 16px 24px;
+    margin: 20px 0;
+    min-width: 220px;
+}
+
+.personagem-emoji {
+    font-size: 40px;
+    margin-bottom: 6px;
+}
+
+#personagem-hp {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+#personagem-estado {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+#personagem-variacao {
+    font-size: 13px;
+    opacity: 0.85;
+}
+
 #back-btn {
     background-color: var(--fundobtn);
     color: var(--texto);
@@ -261,3 +320,87 @@ progress {
 #back-btn:hover {
     transform: scale(1.1);
 }
+
+.calendario {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    color: var(--texto);
+}
+
+.calendario h1 {
+    margin-bottom: 16px;
+}
+
+.calendario-legenda {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    font-size: 12px;
+    margin-bottom: 16px;
+    opacity: 0.85;
+}
+ 
+.calendario-semana {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    max-width: 320px;
+    width: 100%;
+    margin-bottom: 8px;
+    font-size: 12px;
+    text-align: center;
+    opacity: 0.7;
+}
+ 
+.calendario-grade {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    max-width: 320px;
+    width: 100%;
+    margin-bottom: 24px;
+}
+ 
+.dia-calendario {
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    font-size: 11px;
+    border: 1px solid var(--borda);
+}
+ 
+.dia-numero {
+    font-weight: bold;
+}
+ 
+.dia-marcador {
+    font-size: 13px;
+}
+ 
+.dia-verde     { background-color: #2e7d32; }
+.dia-amarelo   { background-color: #f9a825; color: var(--preto); }
+.dia-laranja   { background-color: #ef6c00; }
+.dia-vermelho  { background-color: #c62828; }
+.dia-sem-registro { background-color: var(--fundobtn); opacity: 0.35; }
+ 
+#voltar-btn {
+    background-color: var(--fundobtn);
+    color: var(--texto);
+    border: 3px solid var(--borda);
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+ 
+#voltar-btn:hover {
+    transform: scale(1.05);
+}
+ 

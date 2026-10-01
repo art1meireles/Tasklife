@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calendário de Consistência</title>
+</head>
+
+<body>
+
+    <div class="calendario">
+
+        <h1 id="calendario-titulo"></h1>
+
+        <div class="calendario-legenda">
+            <span>🟢 Excelente</span>
+            <span>🟡 Consistente</span>
+            <span>🟠 Baixo</span>
+            <span>🔴 Muito baixo</span>
+            <span>⚪ Sem registro</span>
+        </div>
+
+        <div class="calendario-semana">
+            <span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span>
+            <span>Sex</span><span>Sáb</span><span>Dom</span>
+        </div>
+
+        <div id="calendario-grade" class="calendario-grade"></div>
+
+        <button id="voltar-btn">VOLTAR</button>
+
+    </div>
+
+    <script src="utils.js"></script>
+    <script src="calendario.js"></script>
+
+</body>
+
+</html>
