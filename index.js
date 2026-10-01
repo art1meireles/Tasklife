@@ -5,15 +5,15 @@ startButton.addEventListener("click", function () {
 
 document.getElementById("saudacao").textContent = saudacaoPorHorario();
 
-const streakAtual = calcularStreak();
-const streakEl = document.getElementById("streak");
-
-if (streakAtual > 0) {
+const hoje = new Date();
+const ano = hoje.getFullYear();
+const mes = hoje.getMonth();
  
-    const plural = streakAtual > 1 ? "s" : "";
+document.getElementById("mini-calendario-titulo").textContent =
+    `${NOMES_MESES[mes]} de ${ano}`;
  
-    streakEl.textContent =
-        `Você já usou o app ${streakAtual} dia${plural} seguido${plural} 🔥`;
- 
-    streakEl.classList.add("visivel");
-} // se streakAtual for 0, o parágrafo fica vazio (sem classe "visivel") e some do layout
+construirGradeCalendario(
+    document.getElementById("mini-calendario-grade"),
+    ano,
+    mes
+);

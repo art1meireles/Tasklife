@@ -52,37 +52,61 @@ body {
   }
 }*/
 
-.streak {
- display: none;
+.subtitulo {
  color: var(--texto);
- background-color: var(--fundobtn);
- border: 2px solid var(--borda);
- border-radius: 20px;
- padding: 6px 16px;
- font-size: 14px;
- font-weight: bold;
- margin-top: 20px;
+ opacity: 0.75;
+ font-size: 15px;
+ margin-bottom: 28px;
+ text-align: center;
+ max-width: 280px;
+}
+
+.mini-calendario {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ margin-bottom: 30px;
 }
  
-.streak.visivel {
- display: block;
+.mini-calendario-titulo {
+ color: var(--texto);
+ font-size: 14px;
+ font-weight: bold;
+ margin-bottom: 8px;
+ opacity: 0.9;
+}
+ 
+/* "mini" deixa a semana e a grade menores que na página do calendário completo */
+.calendario-semana.mini {
+ max-width: 220px;
+ font-size: 10px;
+ margin-bottom: 6px;
+ color: var(--texto);
+}
+ 
+.calendario-grade.mini {
+ max-width: 220px;
+ gap: 4px;
+ margin-bottom: 10px;
+}
+ 
+.calendario-grade.mini .dia-calendario {
+ border-radius: 4px;
+ color: var(--texto);
+}
+ 
+.calendario-grade.mini .dia-marcador {
+ font-size: 10px;
 }
 
-.foto{
-    width: 400px;
-    /*
-    animation: fadeIn 1s ease-in-out;
-    */
+.calendario-legenda.mini {
+ align-items: flex-start;
+ max-width: 220px;
+ gap: 3px;
+ font-size: 10px;
+ margin-bottom: 14px;
+ color: var(--texto);
 }
-
-/*@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}*/
 
 #start-btn {
  background-color: var(--fundobtn);
@@ -407,11 +431,15 @@ progress {
     font-size: 13px;
 }
  
-.dia-verde     { background-color: #2e7d32; }
-.dia-amarelo   { background-color: #f9a825; color: var(--preto); }
-.dia-laranja   { background-color: #ef6c00; }
-.dia-vermelho  { background-color: #c62828; }
-.dia-sem-registro { background-color: var(--fundobtn); opacity: 0.35; }
+.dia-verde     { background-color: #138818; }
+.dia-amarelo   { background-color: #e99001; }
+.dia-laranja   { background-color: #e46600; }
+.dia-vermelho  { background-color: #c90303; }
+.dia-sem-registro { background-color: var(--fundobtn); opacity: 0.7; }
+
+.dia-sem-registro:hover {
+    opacity: 1;
+}
  
 #voltar-btn {
     background-color: var(--fundobtn);
@@ -421,9 +449,11 @@ progress {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+
 }
  
 #voltar-btn:hover {
     transform: scale(1.05);
+    opacity: 1;
 }
  
